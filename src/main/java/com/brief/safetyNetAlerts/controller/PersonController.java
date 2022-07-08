@@ -1,5 +1,6 @@
 package com.brief.safetyNetAlerts.controller;
 
+import com.brief.safetyNetAlerts.dto.PersonDto;
 import com.brief.safetyNetAlerts.model.Person;
 import com.brief.safetyNetAlerts.Service.ServiceImpl.PersonServiceImpl;
 import lombok.Data;
@@ -17,7 +18,7 @@ public class PersonController {
     PersonServiceImpl personService;
     private final ModelMapper modelMapper = new ModelMapper();
 
-    @PostMapping("/person")
+    @PostMapping("")
     public Person savePersonAddress(@RequestBody Person personn){
         return personService.savePerson(personn);
     }
@@ -42,8 +43,8 @@ public class PersonController {
         personService.adminDeletePerson(personId);
     }
 
-//    @PutMapping("")
-//    public Person updatePerson(@RequestBody PersonDto personDto){
-//        return personService.updatePerson(personDto);
-//    }
+    @PutMapping("")
+    public Person updatePerson(@RequestBody PersonDto personDto){
+        return personService.updatePerson(personDto);
+    }
 }

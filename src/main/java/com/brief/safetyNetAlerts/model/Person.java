@@ -22,7 +22,6 @@ public class Person {
     private String username;
     private String lastName;
     private String phone;
-    private String phone2;
     private String birthday;
     private Long adresseId;
     private String password;
