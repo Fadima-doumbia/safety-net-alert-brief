@@ -1,5 +1,6 @@
 package com.brief.safetyNetAlerts.Service.ServiceImpl;
 
+import com.brief.safetyNetAlerts.dto.PersonDto;
 import com.brief.safetyNetAlerts.model.Person;
 import com.brief.safetyNetAlerts.repository.PersonRepository;
 import org.modelmapper.ModelMapper;
@@ -32,10 +33,10 @@ public Person savePerson(Person person){
         return personRepository.findById(id);
     }
 
-//    public Person updatePerson(PersonDto personDto){
-//        Person person = modelMapper.map(personDto, Person.class);
-//        return personRepository.save(person);
-//    }
+    public Person updatePerson(PersonDto personDto){
+        Person person = modelMapper.map(personDto, Person.class);
+        return personRepository.save(person);
+    }
 
     public void adminDeletePerson(Long id){
         personRepository.deleteById(id);
