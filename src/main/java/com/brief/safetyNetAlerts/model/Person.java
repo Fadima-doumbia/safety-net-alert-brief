@@ -1,4 +1,4 @@
-package com.brief.safetynetalert.model;
+package com.brief.safetyNetAlerts.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,14 +26,6 @@ public class Person {
     private String birthday;
     private Long adresseId;
     private String password;
-    @OneToOne(fetch=FetchType.EAGER)
-    private MedicalRecords medicalRecords;
-    @ManyToMany(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinTable(	name = "person_role",
-            joinColumns = @JoinColumn(name = "person_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles = new HashSet<>();
 
     public Person(String email, String username, String lastName, String phone, String birthday, Long adresseId, String encode) {
         this.email=email;

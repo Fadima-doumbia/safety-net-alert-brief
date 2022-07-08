@@ -1,4 +1,4 @@
-package com.brief.safetynetalert.model.emunModel;
+package com.brief.safetyNetAlerts.model.emunModel;
 
 public enum EStatus {
     InProgress,
