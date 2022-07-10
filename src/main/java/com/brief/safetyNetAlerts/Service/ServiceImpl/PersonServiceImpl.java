@@ -11,6 +11,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -24,20 +25,30 @@ public class PersonServiceImpl {
     private final ModelMapper modelMapper = new ModelMapper();
     @Autowired
     private AddressPersonRepository addressPersonRepository;
+    @Autowired
+    private MedicalRecordsServiceImpl medicalRecordsService;
+
 
     public Person savePerson(Person person){
     return personRepository.save(person);
 }
 
     public Person savePersonSimple(Person person){
+        if(Objects.isNull(person.getMedicalRecords())){
+            System.out.println("null");
+        }else{
+            medicalRecordsService.saveMedicalRecords(person.getMedicalRecords());
+
+        }
+//            if (person.getMedicalRecords().getMedications().size() > 0
+//                && person.getMedicalRecords().getAllergies().size() > 0 ){
+//        }
+        System.out.println(person);
         Person person1 = personRepository.save(person);
         Address address = addressRepository.findById(person1.getAdresseId()).get();
         AdressPerson adressPerson = new AdressPerson();
         adressPerson.setPerson(person1);
         adressPerson.setAddress(address);
-        System.out.println(person1);
-        System.out.println(address);
-
         addressPersonService.saveAddressPerson( adressPerson );
         return person1;
     }
