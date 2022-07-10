@@ -33,9 +33,14 @@ public class PersonController {
         return personService.getAllPerson();
     }
 
+//    @PostMapping("/p")
+//    public Person savePersonSimple(@RequestBody Person person){
+//        return personService.savePerson(person);
+//    }
+
     @PostMapping("/p")
     public Person savePersonSimple(@RequestBody Person person){
-        return personService.savePerson(person);
+        return personService.savePersonSimple(person);
     }
 
     @DeleteMapping("/{personId}")

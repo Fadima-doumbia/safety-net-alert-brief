@@ -10,8 +10,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(	name = "address", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "address") })
+@Table(	name = "address")
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
