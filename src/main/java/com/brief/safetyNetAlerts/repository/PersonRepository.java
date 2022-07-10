@@ -13,6 +13,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 //    Optional<Person> findByFUAndUsernameAndLastNameAndBirthday(String username, String lastName, String birthday);
     Optional<Person> findByUsername(String username);
     Optional<Person> findById(Long id);
+    Optional<Person> findByUsernameAndLastName(String username, String lastname);
 
     Boolean existsByEmail(String email);
 }

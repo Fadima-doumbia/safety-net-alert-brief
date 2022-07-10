@@ -25,7 +25,8 @@ public class Person {
     private String birthday;
     private Long adresseId;
     private String password;
-
+    @OneToOne(fetch=FetchType.EAGER)
+    private MedicalRecords medicalRecords;
 //    @OneToOne(fetch= FetchType.EAGER)
 //    private Address address;
     
