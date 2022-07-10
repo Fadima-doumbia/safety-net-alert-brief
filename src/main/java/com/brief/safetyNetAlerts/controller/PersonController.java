@@ -33,14 +33,25 @@ public class PersonController {
         return personService.getAllPerson();
     }
 
+//    @PostMapping("/p")
+//    public Person savePersonSimple(@RequestBody Person person){
+//        return personService.savePerson(person);
+//    }
+
     @PostMapping("/p")
     public Person savePersonSimple(@RequestBody Person person){
-        return personService.savePerson(person);
+        return personService.savePersonSimple(person);
     }
 
     @DeleteMapping("/{personId}")
     public void personDelete (@PathVariable("personId") final Long personId){
         personService.adminDeletePerson(personId);
+    }
+
+    @DeleteMapping("/{username}/{lastname}")
+    public String personDeleteByusernameLastname (@PathVariable("username") final String username,
+                                                @PathVariable("lastname") final String lastname){
+        return personService.adminDelete(username, lastname);
     }
 
     @PutMapping("")

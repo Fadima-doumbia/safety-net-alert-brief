@@ -26,6 +26,9 @@ public class Person {
     private Long adresseId;
     private String password;
 
+//    @OneToOne(fetch= FetchType.EAGER)
+//    private Address address;
+    
     public Person(String email, String username, String lastName, String phone, String birthday, Long adresseId, String encode) {
         this.email=email;
         this.username=username;
