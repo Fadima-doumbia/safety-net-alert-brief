@@ -34,11 +34,16 @@ public class PersonServiceImpl {
 }
 
     public Person savePersonSimple(Person person){
-        if(Objects.isNull(person.getMedicalRecords())){
+        if(Objects.isNull(person.getMedicalRecords()) ){
             System.out.println("null");
-        }else{
+        }else {
             medicalRecordsService.saveMedicalRecords(person.getMedicalRecords());
         }
+//        else if (person.getMedicalRecords().getAllergies().size()<1
+//                || person.getMedicalRecords().getMedications().size()<1 ){
+//            System.out.println("vide");
+//        }
+
 
         System.out.println(person);
         Person person1 = personRepository.save(person);
