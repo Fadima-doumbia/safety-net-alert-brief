@@ -4,6 +4,7 @@ import com.brief.safetyNetAlerts.dto.PersonDto;
 import com.brief.safetyNetAlerts.model.Address;
 import com.brief.safetyNetAlerts.model.AdressPerson;
 import com.brief.safetyNetAlerts.model.Person;
+import com.brief.safetyNetAlerts.repository.AddressPersonRepository;
 import com.brief.safetyNetAlerts.repository.AddressRepository;
 import com.brief.safetyNetAlerts.repository.PersonRepository;
 import org.modelmapper.ModelMapper;
@@ -21,6 +22,8 @@ public class PersonServiceImpl {
     @Autowired
     private AddressPersonServiceImpl addressPersonService;
     private final ModelMapper modelMapper = new ModelMapper();
+    @Autowired
+    private AddressPersonRepository addressPersonRepository;
 
     public Person savePerson(Person person){
     return personRepository.save(person);
@@ -55,4 +58,16 @@ public class PersonServiceImpl {
     public void adminDeletePerson(Long id){
         personRepository.deleteById(id);
     }
+    public String adminDelete(String username, String lastname){
+        Person person = personRepository.findByUsername(username).get();
+        System.out.println(person);
+        AdressPerson adressPerson = addressPersonRepository.findByPerson(person).get();
+        addressPersonRepository.delete(adressPerson);
+        personRepository.delete(person);
+//        System.out.println(person);
+        return "ok";
+
+//        personRepository.deletePersonByUsernameAndLastName(username, lastname);
+    }
+
 }

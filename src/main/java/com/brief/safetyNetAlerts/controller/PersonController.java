@@ -48,6 +48,12 @@ public class PersonController {
         personService.adminDeletePerson(personId);
     }
 
+    @DeleteMapping("/{username}/{lastname}")
+    public String personDeleteByusernameLastname (@PathVariable("username") final String username,
+                                                @PathVariable("lastname") final String lastname){
+        return personService.adminDelete(username, lastname);
+    }
+
     @PutMapping("")
     public Person updatePerson(@RequestBody PersonDto personDto){
         return personService.updatePerson(personDto);
