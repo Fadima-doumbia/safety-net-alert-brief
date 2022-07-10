@@ -1,6 +1,7 @@
 package com.brief.safetyNetAlerts.controller;
 
 import com.brief.safetyNetAlerts.Service.FireStationService;
+import com.brief.safetyNetAlerts.dto.FireStationsDto;
 import com.brief.safetyNetAlerts.model.FireStations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +27,7 @@ public class FireStationController {
     public Optional<FireStations> stationListId(@PathVariable("id")Long id){ return fireStationService.stationListId(id);}
 
     @PutMapping(path = {"/edit/{id}"})
-    public FireStations editStation (@RequestBody FireStations station, @PathVariable("id")Long id){
+    public FireStations editStation (@RequestBody FireStationsDto station, @PathVariable("id")Long id){
         station.setId(id);
         return fireStationService.editStation(station);
     }
