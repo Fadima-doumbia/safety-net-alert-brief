@@ -4,9 +4,11 @@ import com.brief.safetyNetAlerts.dto.MedicalRecordsDto;
 import com.brief.safetyNetAlerts.model.Allergies;
 import com.brief.safetyNetAlerts.model.MedicalRecords;
 import com.brief.safetyNetAlerts.model.Medications;
+import com.brief.safetyNetAlerts.model.Person;
 import com.brief.safetyNetAlerts.repository.AllergiesRepository;
 import com.brief.safetyNetAlerts.repository.MedicalRecordsRepository;
 import com.brief.safetyNetAlerts.repository.MedicationsRepository;
+import com.brief.safetyNetAlerts.repository.PersonRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +32,9 @@ public class MedicalRecordsServiceImpl {
     @Autowired
     private MedicationServiceImpl medicationService;
     private final ModelMapper modelMapper = new ModelMapper();
+    @Autowired
+    private PersonRepository personRepository;
+
 
     public MedicalRecords saveMedicalRecords(MedicalRecords medicalRecords){
         MedicalRecords medicalRecord = medicalRecordsRepository.save(medicalRecords);
@@ -93,5 +98,17 @@ public class MedicalRecordsServiceImpl {
     public void deleteMedicalRecords(Long id){
         medicalRecordsRepository.deleteById(id);
     }
+    //    supprimer un dossier médical (utilisez une combinaison de prénom et de nom comme
+//            identificateur unique
+    public void deleteMedicalRecordsByUsername(String username, String lastname){
+        Person person = personRepository.findByUsernameAndLastName(username, lastname).get();
+        System.out.println(person);
+        MedicalRecords medicalRecords=person.getMedicalRecords();
+        person.setMedicalRecords(null);
+        personRepository.save(person);
+        System.out.println(person);
 
+        medicalRecordsRepository.delete(medicalRecords);
+
+    }
 }

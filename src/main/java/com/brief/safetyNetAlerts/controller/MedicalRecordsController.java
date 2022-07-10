@@ -39,6 +39,11 @@ public class MedicalRecordsController {
     public void deleteMedicalRecords (@PathVariable("medicalRecordsId") final Long medicalRecordsId) {
         medicalRecordsService.deleteMedicalRecords(medicalRecordsId);
     }
+    @DeleteMapping("/{username}/{lastname}")
+    public void deleteMedicalRecords (@PathVariable("username") final String username,
+                                      @PathVariable("lastname") final String lastname) {
+        medicalRecordsService.deleteMedicalRecordsByUsername(username, lastname);
+    }
 
     @PutMapping("/{id}")
     public MedicalRecords updateMedicalRecords(@RequestBody MedicalRecords medicalRecords, @PathVariable("id") Long id ){

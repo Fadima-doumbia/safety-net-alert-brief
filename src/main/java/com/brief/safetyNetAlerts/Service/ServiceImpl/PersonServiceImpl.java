@@ -38,11 +38,8 @@ public class PersonServiceImpl {
             System.out.println("null");
         }else{
             medicalRecordsService.saveMedicalRecords(person.getMedicalRecords());
-
         }
-//            if (person.getMedicalRecords().getMedications().size() > 0
-//                && person.getMedicalRecords().getAllergies().size() > 0 ){
-//        }
+
         System.out.println(person);
         Person person1 = personRepository.save(person);
         Address address = addressRepository.findById(person1.getAdresseId()).get();
