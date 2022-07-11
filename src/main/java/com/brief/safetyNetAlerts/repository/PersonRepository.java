@@ -10,7 +10,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
     Optional<Person> findByEmail(String email);
 
     String deletePersonByUsernameAndLastName(String username, String lastname);
-//    Optional<Person> findByFUAndUsernameAndLastNameAndBirthday(String username, String lastName, String birthday);
+    Optional<Person> findByUsernameAndLastNameAndBirthday(String username, String lastName, String birthday);
     Optional<Person> findByUsername(String username);
     Optional<Person> findById(Long id);
     Optional<Person> findByUsernameAndLastName(String username, String lastname);

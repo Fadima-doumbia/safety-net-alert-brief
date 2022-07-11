@@ -2,18 +2,13 @@ package com.brief.safetyNetAlerts.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @NoArgsConstructor
 @Data
 @Entity
-@Table(	name = "person", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "email") })
+@Table(	name = "person")
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

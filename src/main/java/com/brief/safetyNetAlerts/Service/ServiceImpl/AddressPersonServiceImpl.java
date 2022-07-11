@@ -1,10 +1,7 @@
 package com.brief.safetyNetAlerts.Service.ServiceImpl;
 
-import com.brief.safetyNetAlerts.dto.AddressDto;
 import com.brief.safetyNetAlerts.dto.AddressPersonDto;
-import com.brief.safetyNetAlerts.model.Address;
 import com.brief.safetyNetAlerts.model.AdressPerson;
-import com.brief.safetyNetAlerts.model.Person;
 import com.brief.safetyNetAlerts.repository.AddressPersonRepository;
 import com.brief.safetyNetAlerts.repository.AddressRepository;
 import com.brief.safetyNetAlerts.repository.PersonRepository;
@@ -43,6 +40,10 @@ public class AddressPersonServiceImpl {
     public Optional<AdressPerson> getAddress(Long id) {
         return addressPersonRepository.findById(id);
     }
+
+//    public Optional<AdressPerson> getAddressByNAme(String id) {
+//        return addressPersonRepository.findById(id);
+//    }
 
     public AdressPerson updateAddress(AddressPersonDto addressDto){
         AdressPerson address = modelMapper.map(addressDto, AdressPerson.class);

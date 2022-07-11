@@ -9,4 +9,6 @@ import java.util.Optional;
 @Repository
 public interface AllergiesRepository extends JpaRepository<Allergies, Long> {
     Optional<Allergies> findByName(String name);
+    Boolean existsByName(String name);
+
 }

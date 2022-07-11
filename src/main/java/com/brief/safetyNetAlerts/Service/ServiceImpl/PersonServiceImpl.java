@@ -39,12 +39,6 @@ public class PersonServiceImpl {
         }else {
             medicalRecordsService.saveMedicalRecords(person.getMedicalRecords());
         }
-//        else if (person.getMedicalRecords().getAllergies().size()<1
-//                || person.getMedicalRecords().getMedications().size()<1 ){
-//            System.out.println("vide");
-//        }
-
-
         System.out.println(person);
         Person person1 = personRepository.save(person);
         Address address = addressRepository.findById(person1.getAdresseId()).get();
@@ -62,6 +56,11 @@ public class PersonServiceImpl {
     public Optional<Person> getPerson(final Long id) {
         return personRepository.findById(id);
     }
+
+    public Optional<Person> getPersonByName( String firstname, String lastname) {
+        return personRepository.findByUsernameAndLastName(firstname, lastname);
+    }
+
 
     public Person updatePerson(PersonDto personDto){
         Person person = modelMapper.map(personDto, Person.class);
