@@ -7,11 +7,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import javax.transaction.Transactional;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,8 +17,6 @@ import java.util.Optional;
 import java.util.Set;
 
 @Component
-@Transactional
-@EnableScheduling
 public class ReadJson {
         @Autowired
             PersonServiceImpl personnServiceImpl;
@@ -48,7 +43,7 @@ public class ReadJson {
         @Autowired
         MedicationsRepository medicationsRepository;
 
-@Scheduled(fixedDelay = 100000)
+//@Scheduled(fixedDelay = 100000)
 public  void readAndSaveJson() throws IOException {
         JSONParser jsonParser = new JSONParser();
         try {
@@ -133,11 +128,8 @@ public  void readAndSaveJson() throws IOException {
         JSONObject convertObjt = (JSONObject) listfirestations.get(i);
         FireStations fireStations = new FireStations();
                 String addresse = (String) convertObjt.get("address");
-//                int id = Integer.parseInt(jsonObj.get("id"));
                 int stations = (int) Integer.parseInt((String) convertObjt.get("station"));
-
-//                int stations = (Integer) convertObjt.get("station");
-        fireStations.setAddress(addresse);
+                fireStations.setAddress(addresse);
         fireStations.setStation(stations);
         fireStationRepository.save(fireStations);
 
@@ -146,12 +138,10 @@ public  void readAndSaveJson() throws IOException {
 
         System.out.println("*******************************************************");
         System.out.println("Each element of listmedicalrecords");
-//        for (int i = 0; i < listmedicalrecords.size(); i++) {
-//        JSONObject convertObjt = (JSONObject) listmedicalrecords.get(i);
 
                 for (int i = 0; i < listmedicalrecords.size(); i++) {
                         JSONObject convertObjt = (JSONObject) listmedicalrecords.get(i);
-//                allergies
+        //allergies
         JSONArray allergies = (JSONArray) convertObjt.get("allergies");
         ArrayList<String> listAllergies = new ArrayList<String>();
         Set<Allergies> listAllergiesZ = new HashSet<>();
@@ -174,7 +164,7 @@ public  void readAndSaveJson() throws IOException {
         }
 
 
-        //                medications
+        //medications
         JSONArray medications = (JSONArray) convertObjt.get("medications");
         ArrayList<String> listMedications = new ArrayList<String>();
         Set<Medications> listMedicationZ = new HashSet<>();
@@ -188,7 +178,7 @@ public  void readAndSaveJson() throws IOException {
                         String nameMedications = listMedications.get(ind);
                         if (medicationsRepository.existsByName(nameMedications)){
                                 Optional<Medications> medications1 = medicationsRepository.findByName(nameMedications);
-                                listmedicalrecords.add(medications1.get());
+                                listMedicationZ.add(medications1.get());
                         }else{
                                 Medications medications1 = new Medications();
                                 medications1.setName(nameMedications);
@@ -197,22 +187,8 @@ public  void readAndSaveJson() throws IOException {
                         }
                 }
 
-//        for (int ind = 0; ind < listMedications.size(); ind++){
-//                String nameMedications = (String) listfirestations.get(ind);
-//        if (medicationsRepository.existsByName(nameMedications)){
-//                Optional <Medications> medications1 = medicationsRepository.findByName(nameMedications);
-//                listMedicationZ.add(medications1.get());
-//        }else{
-//                Medications medication = new Medications();
-//                medication.setName(nameMedications);
-//                medicationService.saveMedicationSimple(medication);
-//                listMedicationZ.add(medication);
-//        }
-//
-//        }
 
-
-        //                medicalRecords
+        //medicalRecords
         MedicalRecords medicalRecords = new MedicalRecords();
         medicalRecords.setAllergies(listAllergiesZ);
         medicalRecords.setMedications(listMedicationZ);
@@ -222,16 +198,13 @@ public  void readAndSaveJson() throws IOException {
         String firstname = (String) convertObjt.get("firstName");
         String lastname = (String) convertObjt.get("lastName");
         String birthday = (String) convertObjt.get("birthdate");
-//                        System.out.println(convertObjt);
 //        Optional<Person> person = personRepository.findByUsernameAndLastName(firstname, lastname);
-
         Optional<Person> person = personnServiceImpl.getPersonByName(firstname, lastname);
-//                        System.out.println(person);
         person.get().setBirthday(birthday);
         person.get().setMedicalRecords(medicalRecords);
         personRepository.save(person.get());
 
-//        System.out.println(convertObjt);
+        System.out.println(convertObjt);
         System.out.println("person : " +person);
         }
 
