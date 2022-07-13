@@ -28,6 +28,11 @@ public class PersonController {
         return personService.getPerson(personId);
     }
 
+    @GetMapping("/{personId}/{lastname}")
+    public Optional<Person> getPerson(@PathVariable("personId")  String personId,@PathVariable("lastname")  String lastname ){
+        return personService.getPersonByName(personId, lastname);
+    }
+
     @GetMapping()
     public List<Person> getAllPersons(){
         return personService.getAllPerson();

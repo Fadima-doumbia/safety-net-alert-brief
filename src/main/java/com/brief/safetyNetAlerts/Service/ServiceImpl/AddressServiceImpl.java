@@ -45,6 +45,10 @@ public class AddressServiceImpl {
         return addressRepository.findById(id);
     }
 
+    public Optional<Address> getAddress(String address) {
+        return addressRepository.findByAddress(address);
+    }
+
     public Address updateAddress(AddressDto addressDto){
         Address address = modelMapper.map(addressDto, Address.class);
         return addressRepository.save(address);

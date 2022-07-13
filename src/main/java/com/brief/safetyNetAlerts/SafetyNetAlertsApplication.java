@@ -1,13 +1,26 @@
 package com.brief.safetyNetAlerts;
 
+import com.brief.safetyNetAlerts.utils.ReadJson;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
-public class SafetyNetAlertsApplication {
+import java.io.IOException;
 
-	public static void main(String[] args) {
+@SpringBootApplication
+public class SafetyNetAlertsApplication implements CommandLineRunner {
+	@Autowired
+	ReadJson readJson;
+
+	public static void main(String[] args) throws IOException {
 		SpringApplication.run(SafetyNetAlertsApplication.class, args);
+
+
 	}
 
+	@Override
+	public void run(String... args) throws Exception {
+		readJson.readAndSaveJson();
+	}
 }
