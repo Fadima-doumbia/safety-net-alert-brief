@@ -16,6 +16,10 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
+
+
+//@Transactional
+//@EnableScheduling
 @Component
 public class ReadJson {
         @Autowired
@@ -43,8 +47,8 @@ public class ReadJson {
         @Autowired
         MedicationsRepository medicationsRepository;
 
-//@Scheduled(fixedDelay = 100000)
-public  void readAndSaveJson() throws IOException {
+//        @Scheduled(fixedDelay = 10000)
+        public void readAndSaveJson() throws IOException {
         JSONParser jsonParser = new JSONParser();
         try {
         JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src/main/resources/data.json"));
