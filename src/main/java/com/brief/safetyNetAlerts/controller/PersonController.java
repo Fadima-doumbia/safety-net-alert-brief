@@ -1,5 +1,6 @@
 package com.brief.safetyNetAlerts.controller;
 
+import com.brief.safetyNetAlerts.dto.PersonDto;
 import com.brief.safetyNetAlerts.model.Person;
 import com.brief.safetyNetAlerts.Service.ServiceImpl.PersonServiceImpl;
 import lombok.Data;
@@ -17,7 +18,7 @@ public class PersonController {
     PersonServiceImpl personService;
     private final ModelMapper modelMapper = new ModelMapper();
 
-    @PostMapping("/person")
+    @PostMapping("")
     public Person savePersonAddress(@RequestBody Person personn){
         return personService.savePerson(personn);
     }
@@ -27,14 +28,24 @@ public class PersonController {
         return personService.getPerson(personId);
     }
 
+    @GetMapping("/{personId}/{lastname}")
+    public Optional<Person> getPerson(@PathVariable("personId")  String personId,@PathVariable("lastname")  String lastname ){
+        return personService.getPersonByName(personId, lastname);
+    }
+
     @GetMapping()
     public List<Person> getAllPersons(){
         return personService.getAllPerson();
     }
 
+//    @PostMapping("/p")
+//    public Person savePersonSimple(@RequestBody Person person){
+//        return personService.savePerson(person);
+//    }
+
     @PostMapping("/p")
     public Person savePersonSimple(@RequestBody Person person){
-        return personService.savePerson(person);
+        return personService.savePersonSimple(person);
     }
 
     @DeleteMapping("/{personId}")
@@ -42,8 +53,14 @@ public class PersonController {
         personService.adminDeletePerson(personId);
     }
 
-//    @PutMapping("")
-//    public Person updatePerson(@RequestBody PersonDto personDto){
-//        return personService.updatePerson(personDto);
-//    }
+    @DeleteMapping("/{username}/{lastname}")
+    public String personDeleteByusernameLastname (@PathVariable("username") final String username,
+                                                @PathVariable("lastname") final String lastname){
+        return personService.adminDelete(username, lastname);
+    }
+
+    @PutMapping("")
+    public Person updatePerson(@RequestBody PersonDto personDto){
+        return personService.updatePerson(personDto);
+    }
 }
