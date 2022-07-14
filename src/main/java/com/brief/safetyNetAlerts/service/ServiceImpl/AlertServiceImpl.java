@@ -1,6 +1,6 @@
-package com.brief.safetyNetAlerts.Service.ServiceImpl;
+package com.brief.safetyNetAlerts.service.ServiceImpl;
 
-import com.brief.safetyNetAlerts.Service.AlertService;
+import com.brief.safetyNetAlerts.service.AlertService;
 import com.brief.safetyNetAlerts.model.Alert;
 import com.brief.safetyNetAlerts.repository.AlertRepository;
 import org.springframework.beans.factory.annotation.Autowired;

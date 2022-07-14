@@ -1,6 +1,6 @@
 package com.brief.safetyNetAlerts.controller;
 
-import com.brief.safetyNetAlerts.Service.ServiceImpl.AllergiesServiceImpl;
+import com.brief.safetyNetAlerts.service.ServiceImpl.AllergiesServiceImpl;
 import com.brief.safetyNetAlerts.dto.AllergiesDto;
 import com.brief.safetyNetAlerts.model.Allergies;
 import lombok.Data;

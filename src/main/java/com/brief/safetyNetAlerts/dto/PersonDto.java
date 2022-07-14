@@ -1,5 +1,6 @@
 package com.brief.safetyNetAlerts.dto;
 
+import com.brief.safetyNetAlerts.model.MedicalRecords;
 import lombok.Data;
 
 @Data
@@ -10,4 +11,6 @@ public class PersonDto {
     private String birthday;
     private Long adresseId;
     private String password;
+    private MedicalRecords medicalRecords;
+
 }

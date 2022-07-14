@@ -1,10 +1,7 @@
 package com.brief.safetyNetAlerts.controller;
 
-import com.brief.safetyNetAlerts.Service.ServiceImpl.AddressPersonServiceImpl;
-import com.brief.safetyNetAlerts.Service.ServiceImpl.PersonServiceImpl;
-import com.brief.safetyNetAlerts.model.Address;
+import com.brief.safetyNetAlerts.service.ServiceImpl.AddressPersonServiceImpl;
 import com.brief.safetyNetAlerts.model.AdressPerson;
-import com.brief.safetyNetAlerts.model.Person;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

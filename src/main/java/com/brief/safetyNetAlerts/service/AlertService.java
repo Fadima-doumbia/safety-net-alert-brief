@@ -1,4 +1,4 @@
-package com.brief.safetyNetAlerts.Service;
+package com.brief.safetyNetAlerts.service;
 
 import com.brief.safetyNetAlerts.model.Alert;
 import org.springframework.stereotype.Service;

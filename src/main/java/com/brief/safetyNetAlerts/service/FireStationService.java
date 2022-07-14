@@ -1,4 +1,4 @@
-package com.brief.safetyNetAlerts.Service;
+package com.brief.safetyNetAlerts.service;
 
 import com.brief.safetyNetAlerts.dto.FireStationsDto;
 import com.brief.safetyNetAlerts.model.FireStations;

@@ -16,7 +16,7 @@ import java.util.Optional;
 public class MedicalRecordsController {
 
     @Autowired
-    com.brief.safetyNetAlerts.Service.ServiceImpl.MedicalRecordsServiceImpl medicalRecordsService;
+    com.brief.safetyNetAlerts.service.ServiceImpl.MedicalRecordsServiceImpl medicalRecordsService;
 
     private final ModelMapper modelMapper = new ModelMapper();
 

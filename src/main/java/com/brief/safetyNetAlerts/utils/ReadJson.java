@@ -1,6 +1,6 @@
 package com.brief.safetyNetAlerts.utils;
 
-import com.brief.safetyNetAlerts.Service.ServiceImpl.*;
+import com.brief.safetyNetAlerts.service.ServiceImpl.*;
 import com.brief.safetyNetAlerts.model.*;
 import com.brief.safetyNetAlerts.repository.*;
 import org.json.simple.JSONArray;

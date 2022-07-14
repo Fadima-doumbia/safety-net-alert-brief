@@ -1,6 +1,6 @@
 package com.brief.safetyNetAlerts.controller;
 
-import com.brief.safetyNetAlerts.Service.ServiceImpl.MedicationServiceImpl;
+import com.brief.safetyNetAlerts.service.ServiceImpl.MedicationServiceImpl;
 import com.brief.safetyNetAlerts.dto.MedicationDto;
 import com.brief.safetyNetAlerts.model.Medications;
 import lombok.Data;

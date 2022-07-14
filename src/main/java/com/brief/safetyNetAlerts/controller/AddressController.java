@@ -1,6 +1,6 @@
 package com.brief.safetyNetAlerts.controller;
 
-import com.brief.safetyNetAlerts.Service.ServiceImpl.AddressServiceImpl;
+import com.brief.safetyNetAlerts.service.ServiceImpl.AddressServiceImpl;
 import com.brief.safetyNetAlerts.dto.AddressDto;
 import com.brief.safetyNetAlerts.model.Address;
 import com.brief.safetyNetAlerts.repository.AddressRepository;

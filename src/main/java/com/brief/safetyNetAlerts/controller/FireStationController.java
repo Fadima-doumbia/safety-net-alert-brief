@@ -1,6 +1,6 @@
 package com.brief.safetyNetAlerts.controller;
 
-import com.brief.safetyNetAlerts.Service.FireStationService;
+import com.brief.safetyNetAlerts.service.FireStationService;
 import com.brief.safetyNetAlerts.dto.FireStationsDto;
 import com.brief.safetyNetAlerts.model.FireStations;
 import org.springframework.beans.factory.annotation.Autowired;

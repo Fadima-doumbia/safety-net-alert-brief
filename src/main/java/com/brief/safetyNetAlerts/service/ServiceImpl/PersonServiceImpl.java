@@ -1,4 +1,4 @@
-package com.brief.safetyNetAlerts.Service.ServiceImpl;
+package com.brief.safetyNetAlerts.service.ServiceImpl;
 
 import com.brief.safetyNetAlerts.dto.PersonDto;
 import com.brief.safetyNetAlerts.model.Address;
@@ -79,6 +79,14 @@ public class PersonServiceImpl {
 //        System.out.println(person);
         return "ok";
 
+//        personRepository.deletePersonByUsernameAndLastName(username, lastname);
+    }
+
+    public void deleteByUsernameLastname(String username, String lastname){
+        Person person = personRepository.findByUsernameAndLastName(username, lastname).get();
+        AdressPerson adressPerson = addressPersonRepository.findByPerson(person).get();
+        addressPersonRepository.delete(adressPerson);
+        personRepository.delete(person);
 //        personRepository.deletePersonByUsernameAndLastName(username, lastname);
     }
 

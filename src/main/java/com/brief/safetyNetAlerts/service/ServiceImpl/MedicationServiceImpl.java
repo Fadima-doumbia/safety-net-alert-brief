@@ -1,4 +1,4 @@
-package com.brief.safetyNetAlerts.Service.ServiceImpl;
+package com.brief.safetyNetAlerts.service.ServiceImpl;
 
 import com.brief.safetyNetAlerts.dto.MedicationDto;
 import com.brief.safetyNetAlerts.model.Medications;

@@ -1,8 +1,7 @@
-package com.brief.safetyNetAlerts.Service.ServiceImpl;
+package com.brief.safetyNetAlerts.service.ServiceImpl;
 
-import com.brief.safetyNetAlerts.Service.FireStationService;
+import com.brief.safetyNetAlerts.service.FireStationService;
 import com.brief.safetyNetAlerts.dto.FireStationsDto;
-import com.brief.safetyNetAlerts.model.AdressPerson;
 import com.brief.safetyNetAlerts.model.FireStations;
 import com.brief.safetyNetAlerts.repository.FireStationRepository;
 import org.modelmapper.ModelMapper;

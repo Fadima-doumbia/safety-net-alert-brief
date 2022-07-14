@@ -1,6 +1,6 @@
 package com.brief.safetyNetAlerts.controller;
 
-import com.brief.safetyNetAlerts.Service.AlertService;
+import com.brief.safetyNetAlerts.service.AlertService;
 import com.brief.safetyNetAlerts.model.Alert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

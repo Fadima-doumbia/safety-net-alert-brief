@@ -1,9 +1,7 @@
-package com.brief.safetyNetAlerts.Service.ServiceImpl;
+package com.brief.safetyNetAlerts.service.ServiceImpl;
 
 import com.brief.safetyNetAlerts.dto.AllergiesDto;
-import com.brief.safetyNetAlerts.dto.MedicationDto;
 import com.brief.safetyNetAlerts.model.Allergies;
-import com.brief.safetyNetAlerts.model.Medications;
 import com.brief.safetyNetAlerts.repository.AllergiesRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

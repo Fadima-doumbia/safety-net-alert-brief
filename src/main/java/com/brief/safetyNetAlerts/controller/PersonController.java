@@ -2,7 +2,7 @@ package com.brief.safetyNetAlerts.controller;
 
 import com.brief.safetyNetAlerts.dto.PersonDto;
 import com.brief.safetyNetAlerts.model.Person;
-import com.brief.safetyNetAlerts.Service.ServiceImpl.PersonServiceImpl;
+import com.brief.safetyNetAlerts.service.ServiceImpl.PersonServiceImpl;
 import lombok.Data;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +57,11 @@ public class PersonController {
     public String personDeleteByusernameLastname (@PathVariable("username") final String username,
                                                 @PathVariable("lastname") final String lastname){
         return personService.adminDelete(username, lastname);
+    }
+    @DeleteMapping("/delete/{username}/{lastname}")
+    public void deleteByusernameLastname (@PathVariable("username") final String username,
+                                                  @PathVariable("lastname") final String lastname){
+        personService.deleteByUsernameLastname(username, lastname);
     }
 
     @PutMapping("")
