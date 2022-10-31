@@ -17,10 +17,8 @@ public class SafetyNetAlertsApplication{
 //
 //	public static void main(String[] args) throws IOException {
 //		SpringApplication.run(SafetyNetAlertsApplication.class, args);
-//
-//
 //	}
-//
+
 //	@Override
 //	public void run(String... args) throws Exception {
 //		readJson.readAndSaveJson();
