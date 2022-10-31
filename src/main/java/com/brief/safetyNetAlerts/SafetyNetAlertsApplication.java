@@ -15,8 +15,6 @@ public class SafetyNetAlertsApplication implements CommandLineRunner {
 
 	public static void main(String[] args) throws IOException {
 		SpringApplication.run(SafetyNetAlertsApplication.class, args);
-
-
 	}
 
 	@Override
